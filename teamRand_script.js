@@ -1076,7 +1076,7 @@ window.onbeforeunload = function() {
 function setUp(){
 	showMessage();
 	$('#messageScreen').click(function() {
-		document.getElementById('messageScreen').style.display = 'none'
+		closeMessage();
 	});
 	$('#HTMLtoPDFcont').click(function() {
 		document.getElementById('HTMLtoPDFcont').style.display = 'none'
