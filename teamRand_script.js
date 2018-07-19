@@ -1074,6 +1074,10 @@ window.onbeforeunload = function() {
 }
 
 function setUp(){
+	showMessage();
+	$('#messageScreen').click(function() {
+		document.getElementById('messageScreen').style.display = 'none'
+	});
 	$('#HTMLtoPDFcont').click(function() {
 		document.getElementById('HTMLtoPDFcont').style.display = 'none'
 	});
@@ -1677,6 +1681,15 @@ function makeTeamList(index, type){
 function closeViewDocs(){
 	document.getElementById('viewDocsScreen').style.display = 'none'; 
 	document.getElementsByTagName('BODY')[0].style.overflow = 'auto';
+}
+
+function showMessage(){
+	document.getElementsByTagName("BODY")[0].style.overflow = 'hidden';
+	document.getElementById('messageScreen').style.display = 'block';
+}
+function closeMessage(){
+	document.getElementById('messageScreen').style.display = 'none';
+	document.getElementsByTagName("BODY")[0].style.overflow = 'auto';
 }
 ////////////////////////////////////////////////////////////////////////////
 
