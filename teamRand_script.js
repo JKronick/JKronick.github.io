@@ -1153,7 +1153,9 @@ let teams = [
 ];
 function changeTeamNums(change){
 	const teamNums = parseInt(document.getElementById('numTeams').innerHTML)
-	if(teamNums===1 && change===-1) change = 0;
+	if(teamNums===1 && change===-1) return;
+	document.getElementById('viewCabinDocs').style.display = 'none';
+	document.getElementById('viewTeamDocs').style.display = 'none';
 	document.getElementById('numTeams').innerHTML = teamNums + change;
 	if(change>0){
 		teams.push({number: teamNums+1, teamLeaders: [], campers: []})
@@ -1582,6 +1584,16 @@ function generateTeams(){
 	document.getElementById('viewTeamDocs').style.display = "inline-block";
 }
 function viewLists(type){
+	console.log(type);
+	$('#downloadAll').unbind('click');
+	$('#downloadOne').unbind('click');
+	$('#downloadAll').click(function() {
+		downloadAll(type);
+	});
+	document.getElementById('downloadAll').onclick = `downloadAll(${type})`;
+	$('#downloadOne').click(function() {
+		downloadOne(type);
+	});
 	document.getElementsByTagName("BODY")[0].style.overflow = 'hidden';
 	document.getElementById('viewDocsScreen').style.display = 'block';
 	document.getElementById('docHeader').innerHTML = type+' lists';
@@ -1609,9 +1621,50 @@ function viewLists(type){
 		);
 	}
 }
-function makeCabinList(index, type){
-	document.getElementById('num').innerHTML = 'Cabin '+cabins[index].number;
+function downloadAll(type){
+	let array;
+	let makeList;
+	if(type==='Team'){
+		array = teams;
+		makeList = makeTeamList;
+	}else if(type==='Cabin'){
+		array = cabins;
+		makeList = makeCabinList;
+	}
+	console.log(makeList)
+	for(let i=0; i<array.length; i++){
+		makeList(i, 'd')
+	}
+}
+function downloadOne(type){
 	$('#listTable').empty();
+	document.getElementById('num').innerHTML = '';
+	let array;
+	let makeList;
+	if(type==='Team'){
+		array = teams;
+		makeList = makeTeamList;
+	}else if(type==='Cabin'){
+		array = cabins;
+		makeList = makeCabinList;
+	}
+	for(let i=0; i<array.length; i++){
+		$('#listTable').append(
+			`
+			<div style="font-size: 20px;">
+				${type+" "} ${array[i].number}
+			</div>
+			`
+		)
+		makeList(i, 'd', true)
+	}
+	HTMLtoPDF(`Full${type}sList.pdf`);
+}
+function makeCabinList(index, type, one){
+	if(!one){
+		document.getElementById('num').innerHTML = 'Cabin '+cabins[index].number;
+		$('#listTable').empty();
+	}
 	let dots = "";
 	let leader = "";
 	let team = "";
@@ -1639,15 +1692,27 @@ function makeCabinList(index, type){
 			`
 		);
 	}
+	if(one){
+		for(let i=0; i< 64-cabins[index].campers.length; i++){
+			$('#listTable').append(
+				`
+				<div style="font-size: 1px">.</div>
+				`
+			);
+		}
+	}
 	if(type==='v'){
 		document.getElementById("HTMLtoPDFcont").style.display = 'block';
-	}else if(type==='d'){
+	}else if(type==='d' && !one){
 		HTMLtoPDF(`Cabin${cabins[index].number}List.pdf`);
 	}
 }
-function makeTeamList(index, type){
-	document.getElementById('num').innerHTML = 'Team '+teams[index].number;
-	$('#listTable').empty();
+function makeTeamList(index, type, one){
+	console.log('hello')
+	if(!one){
+		document.getElementById('num').innerHTML = 'Team '+teams[index].number;
+		$('#listTable').empty();
+	}
 	let leaders = "";
 	if(teamLeaders){
 		for(let i=0; i<teams[index].teamLeaders.length; i++){
@@ -1672,10 +1737,19 @@ function makeTeamList(index, type){
 			`
 		);
 	}
+	if(one){
+		for(let i=0; i< 5; i++){
+			$('#listTable').append(
+				`
+				<div style="font-size: 1px">.</div>
+				`
+			);
+		}
+	}
 	if(type==='v'){
 		document.getElementById("HTMLtoPDFcont").style.display = 'block';
-	}else if(type==='d'){
-		HTMLtoPDF(`Cabin${cabins[index].number}List.pdf`);
+	}else if(type==='d' && !one){
+		HTMLtoPDF(`Team${teams[index].number}List.pdf`);
 	}
 }
 function closeViewDocs(){

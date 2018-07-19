@@ -65,7 +65,7 @@
 			</a>
 			<div id="HTMLtoPDF" class="insideScreen">
 				<div style="padding: 50px">
-					<div id="num" style="color: green">
+					<div id="num">
 					</div>
 					<div id="listTable">
 					</div>
@@ -73,11 +73,27 @@
 			</div>
 	</div>
 	<div id="viewDocsScreen" class="screen">
-		<div class="insideScreen">
+		<div class="insideScreen" style="height: 540px; margin: 3% 15%">
 			<img style="position: relative; float: right; bottom: 20px; left: 20px; " width="20" height="20" src="exit.png" onclick="closeViewDocs()">
 			<div id = "docHeader" style="font-size: 30px; margin-bottom: 20px;color: green;"> 
 			</div>
 			<div id="docsCont">
+			</div>
+			<div id="downloadOptions">
+				Download options
+				<div style="font-size: 13px;margin-left: 5px;">
+					<br>
+					<a id="downloadAll"> Download all</a>
+					<br>
+					<br>
+					<a id='downloadOne'> Download all as one list</a>
+					<br>
+					<br>
+					<!-- <div style="font-size: 12px; color: black; display: inline-block;">
+						<input type="checkbox" style="cursor: pointer" oninput="console.log(this.checked)">
+						Don't nclude campers that are not participating (only applies if you download all)
+					</div> -->
+				</div>
 			</div>
 		</div> 
 	</div>
