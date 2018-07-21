@@ -1588,11 +1588,10 @@ function viewLists(type){
 	$('#downloadAll').unbind('click');
 	$('#downloadOne').unbind('click');
 	$('#downloadAll').click(function() {
-		downloadAll(type);
+		downloadDocs(type, 'all');
 	});
-	document.getElementById('downloadAll').onclick = `downloadAll(${type})`;
 	$('#downloadOne').click(function() {
-		downloadOne(type);
+		downloadDocs(type, 'inone');
 	});
 	document.getElementsByTagName("BODY")[0].style.overflow = 'hidden';
 	document.getElementById('viewDocsScreen').style.display = 'block';
@@ -1604,6 +1603,7 @@ function viewLists(type){
 	}else if(type==='Cabin'){
 		array = cabins;
 	}
+	console.log(type)
 	for(let i=0; i<array.length; i++){
 		$('#docsCont').append(
 			`	
@@ -1611,145 +1611,256 @@ function viewLists(type){
 				<div style="padding-left: 10px; font-size: 12px">
 					${type} ${array[i].number}
 				</div>
-				<img style="margin-left: 10px; width="60" height="70" src="document.png" onclick="make${type}List(${i}, 'v')">
+				<img style="margin-left: 10px; width="60" height="70" src="document.png" onclick="viewSingle('${type}', ${i})">
 				<div>
-					<a onclick="make${type}List(${i}, 'd')">Download</a>
-					<a onclick="make${type}List(${i}, 'v')" style="display: inline-block; margin-left: 3px">View</a>
+					<a onclick="downloadDocs('${type}', ${i})">Download</a>
+					<a onclick="viewSingle('${type}', ${i})" style="display: inline-block; margin-left: 3px">View</a>
 				</div>
 			</div>
 			`
 		);
 	}
 }
-function downloadAll(type){
+function downloadDocs(type, option){
+	let pdf = new jsPDF('p', 'pt', 'letter');
+	let generateFunc;
 	let array;
-	let makeList;
-	if(type==='Team'){
-		array = teams;
-		makeList = makeTeamList;
-	}else if(type==='Cabin'){
+	if(type === 'Cabin'){
+		generateFunc = generateCabinPDF;
 		array = cabins;
-		makeList = makeCabinList;
-	}
-	console.log(makeList)
-	for(let i=0; i<array.length; i++){
-		makeList(i, 'd')
-	}
-}
-function downloadOne(type){
-	$('#listTable').empty();
-	document.getElementById('num').innerHTML = '';
-	let array;
-	let makeList;
-	if(type==='Team'){
+	}else if(type === 'Team'){
+		generateFunc = generateTeamPDF;
 		array = teams;
-		makeList = makeTeamList;
-	}else if(type==='Cabin'){
-		array = cabins;
-		makeList = makeCabinList;
 	}
-	for(let i=0; i<array.length; i++){
-		$('#listTable').append(
-			`
-			<div style="font-size: 20px;">
-				${type+" "} ${array[i].number}
-			</div>
-			`
-		)
-		makeList(i, 'd', true)
-	}
-	HTMLtoPDF(`Full${type}sList.pdf`);
-}
-function makeCabinList(index, type, one){
-	if(!one){
-		document.getElementById('num').innerHTML = 'Cabin '+cabins[index].number;
-		$('#listTable').empty();
-	}
-	let dots = "";
-	let leader = "";
-	let team = "";
-	for(let i=0; i<cabins[index].campers.length; i++){
-		dots ="";
-		leader = "";
-		team = "";
-		if(campers[cabins[index].campers[i]].isParticipating){
-			team = 'Team '+ campers[cabins[index].campers[i]].team;
-		}else{
-			team = 'not participating'
+	if(typeof option === 'string'){
+		for(let i=0; i<array.length; i++){
+			generateFunc(pdf, i);
+			if(option === 'inone' && i<array.length-1){
+				pdf.addPage();
+			}else if(option === "all"){
+				pdf.save();
+				pdf = new jsPDF('p', 'pt', 'letter');
+			}
 		}
-		if(campers[cabins[index].campers[i]].isLeader){
-			leader = '(leader)'
+		if(option === 'inone'){
+			pdf.save();
 		}
-		for(let j=campers[cabins[index].campers[i]].name.length; j<50; j++){
-			dots+='.';
-		}
-		$('#listTable').append(
-			`
-			<div>
-					${campers[cabins[index].campers[i]].name}${dots}
-					${team}${leader}
-			</div>
-			`
-		);
-	}
-	if(one){
-		for(let i=0; i< 64-cabins[index].campers.length; i++){
-			$('#listTable').append(
-				`
-				<div style="font-size: 1px">.</div>
-				`
-			);
-		}
-	}
-	if(type==='v'){
-		document.getElementById("HTMLtoPDFcont").style.display = 'block';
-	}else if(type==='d' && !one){
-		HTMLtoPDF(`Cabin${cabins[index].number}List.pdf`);
+	}else{
+		generateFunc(pdf, option);
+		pdf.save();
 	}
 }
-function makeTeamList(index, type, one){
-	console.log('hello')
-	if(!one){
-		document.getElementById('num').innerHTML = 'Team '+teams[index].number;
-		$('#listTable').empty();
+// function downloadOne(type){
+// 	let pdf = new jsPDF('p', 'pt', 'letter');
+// 	let generateFunc;
+// 	let array;
+// 	if(type === 'Cabin'){
+// 		generateFunc = generateCabinPDF;
+// 		array = cabins;
+// 	}else if(type === 'Team'){
+// 		generateFunc = generateTeamPDF;
+// 		array = teams;
+// 	}
+// 	for(let i = 0; i < array.length; i++){
+// 		generateFunc(pdf, i);
+// 		pdf.addPage();
+// 	}
+// 	pdf.save();
+// }
+function viewSingle(type, index){
+	let pdf = new jsPDF('p', 'pt', 'letter');
+	if(type === 'Cabin'){
+		generateCabinPDF(pdf, index);
+	}else if(type === 'Team'){
+		generateTeamPDF(pdf, index);
 	}
+	var string = pdf.output('datauristring');
+	var iframe = "<iframe width='100%' height='100%' src='" + string + "'></iframe>"
+	var x = window.open();
+	x.document.open();
+	x.document.write(iframe);
+	x.document.close();
+}
+function downloadSingle(type, index){
+	let pdf = new jsPDF('p', 'pt', 'letter');
+}
+// function downloadAll(type){
+// 	let array;
+// 	let makeList;
+// 	if(type==='Team'){
+// 		array = teams;
+// 		makeList = makeTeamList;
+// 	}else if(type==='Cabin'){
+// 		array = cabins;
+// 		makeList = makeCabinList;
+// 	}
+// 	console.log(makeList)
+// 	for(let i=0; i<array.length; i++){
+// 		makeList(i, 'd')
+// 	}
+// }
+// function downloadOne(type){
+// 	$('#listTable').empty();
+// 	document.getElementById('num').innerHTML = '';
+// 	let array;
+// 	let makeList;
+// 	if(type==='Team'){
+// 		array = teams;
+// 		makeList = makeTeamList;
+// 	}else if(type==='Cabin'){
+// 		array = cabins;
+// 		makeList = makeCabinList;
+// 	}
+// 	for(let i=0; i<array.length; i++){
+// 		$('#listTable').append(
+// 			`
+// 			<div style="font-size: 20px;">
+// 				${type+" "} ${array[i].number}
+// 			</div>
+// 			`
+// 		)
+// 		makeList(i, 'd', true)
+// 	}
+// 	HTMLtoPDF(`Full${type}sList.pdf`);
+// }
+// function makeCabinList(index, type, one){
+// 	if(!one){
+// 		document.getElementById('num').innerHTML = 'Cabin '+cabins[index].number;
+// 		$('#listTable').empty();
+// 	}
+// 	let dots = "";
+// 	let leader = "";
+// 	let team = "";
+// 	for(let i=0; i<cabins[index].campers.length; i++){
+// 		dots ="";
+// 		leader = "";
+// 		team = "";
+// 		if(campers[cabins[index].campers[i]].isParticipating){
+// 			team = 'Team '+ campers[cabins[index].campers[i]].team;
+// 		}else{
+// 			team = 'not participating'
+// 		}
+// 		if(campers[cabins[index].campers[i]].isLeader){
+// 			leader = '(leader)'
+// 		}
+// 		for(let j=campers[cabins[index].campers[i]].name.length; j<50; j++){
+// 			dots+='.';
+// 		}
+// 		$('#listTable').append(
+// 			`
+// 			<div>
+// 					${campers[cabins[index].campers[i]].name}${dots}
+// 					${team}${leader}
+// 			</div>
+// 			`
+// 		);
+// 	}
+// 	if(one){
+// 		for(let i=0; i< 64-cabins[index].campers.length; i++){
+// 			$('#listTable').append(
+// 				`
+// 				<div style="font-size: 1px">.</div>
+// 				`
+// 			);
+// 		}
+// 	}
+// 	if(type==='v'){
+// 		document.getElementById("HTMLtoPDFcont").style.display = 'block';
+// 	}else if(type==='d' && !one){
+// 		HTMLtoPDF(`Cabin${cabins[index].number}List.pdf`);
+// 	}
+// }
+// function makeTeamList(index, type, one){
+// 	console.log('hello')
+// 	if(!one){
+// 		document.getElementById('num').innerHTML = 'Team '+teams[index].number;
+// 		$('#listTable').empty();
+// 	}
+// 	let leaders = "";
+// 	if(teamLeaders){
+// 		for(let i=0; i<teams[index].teamLeaders.length; i++){
+// 			leaders+=campers[teams[index].teamLeaders[i]].name+", ";
+// 		}
+// 	}
+// 	if(!leaders) leaders = 'none  ';
+// 	leaders = leaders.slice(0, leaders.length-2);
+// 	$('#listTable').append(
+// 		`	
+// 		<div style="font-weight: bold;">
+// 			Team leaders: ${leaders}
+// 		</div>
+// 		`
+// 	);
+// 	for(let i=0; i<teams[index].campers.length; i++){
+// 		$('#listTable').append(
+// 			`
+// 			<div>
+// 					${campers[teams[index].campers[i]].name}
+// 			</div>
+// 			`
+// 		);
+// 	}
+// 	if(one){
+// 		for(let i=0; i< 5; i++){
+// 			$('#listTable').append(
+// 				`
+// 				<div style="font-size: 1px">.</div>
+// 				`
+// 			);
+// 		}
+// 	}
+// 	if(type==='v'){
+// 		document.getElementById("HTMLtoPDFcont").style.display = 'block';
+// 	}else if(type==='d' && !one){
+// 		HTMLtoPDF(`Team${teams[index].number}List.pdf`);
+// 	}
+// }
+//pdf is jspdf object, index is the index of teams
+function generateCabinPDF(pdf, index){
+	pdf.setFont('courier');
+	pdf.setFontSize(24);
+	pdf.setTextColor(0,128,0);
+	pdf.text(55, 80, 'Cabin'+" "+cabins[index].number);
+	pdf.setFontSize(16);
+	pdf.setTextColor(0,0,0);
+	let camper;
+	let spacing = ""; 
+	for(let i=0; i < cabins[index].campers.length; i++){
+		spacing = "";
+		camper = campers[cabins[index].campers[i]];
+		leader = camper.isLeader? '(leader)' : "";
+		for(let j=0; j<34-camper.name.length; j++){
+			spacing += ' ';
+		}
+		pdf.text(55, 115+(i*20), camper.name + spacing + 'Team '+camper.team + leader);
+	}
+}
+function generateTeamPDF(pdf, index){
+	pdf.setFont('courier');
+	pdf.setFontSize(20);
+	pdf.setTextColor(0,128,0);
+	pdf.text(55, 80, 'Team'+" "+teams[index].number);
+	pdf.setFontSize(16);
+	pdf.setTextColor(0,0,0);
+	let camper;
 	let leaders = "";
-	if(teamLeaders){
-		for(let i=0; i<teams[index].teamLeaders.length; i++){
-			leaders+=campers[teams[index].teamLeaders[i]].name+", ";
+	if(teamLeaders) {
+		leaders = "Leaders: "
+		for(let i = 0; i < teams[index].teamLeaders.length; i++){
+			leaders += campers[teams[index].teamLeaders[i]].name+", ";
 		}
-	}
-	if(!leaders) leaders = 'none  ';
-	leaders = leaders.slice(0, leaders.length-2);
-	$('#listTable').append(
-		`	
-		<div style="font-weight: bold;">
-			Team leaders: ${leaders}
-		</div>
-		`
-	);
-	for(let i=0; i<teams[index].campers.length; i++){
-		$('#listTable').append(
-			`
-			<div>
-					${campers[teams[index].campers[i]].name}
-			</div>
-			`
-		);
-	}
-	if(one){
-		for(let i=0; i< 5; i++){
-			$('#listTable').append(
-				`
-				<div style="font-size: 1px">.</div>
-				`
-			);
+		if(teams[index].teamLeaders.length == 0){
+			leaders += 'none..';
 		}
+		leaders = leaders.slice(0, leaders.length-2);
 	}
-	if(type==='v'){
-		document.getElementById("HTMLtoPDFcont").style.display = 'block';
-	}else if(type==='d' && !one){
-		HTMLtoPDF(`Team${teams[index].number}List.pdf`);
+	pdf.text(55, 98, leaders);
+	for(let i=0; i < teams[index].campers.length; i++){
+		if(i > 0 && i%33 === 0){
+			pdf.addPage();
+		}
+		camper = campers[teams[index].campers[i]];
+		pdf.text(55, 115+(i%33)*20, camper.name);
 	}
 }
 function closeViewDocs(){
