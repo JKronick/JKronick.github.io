@@ -1824,7 +1824,7 @@ function generateCabinPDF(pdf, index){
 	pdf.setFontSize(16);
 	pdf.setTextColor(0,0,0);
 	let camper;
-	let spacing = ""; 
+	let spacing = "";
 	for(let i=0; i < cabins[index].campers.length; i++){
 		spacing = "";
 		camper = campers[cabins[index].campers[i]];
@@ -1832,7 +1832,11 @@ function generateCabinPDF(pdf, index){
 		for(let j=0; j<34-camper.name.length; j++){
 			spacing += ' ';
 		}
-		pdf.text(55, 115+(i*20), camper.name + spacing + 'Team '+camper.team + leader);
+		if(camper.isParticipating){
+			pdf.text(55, 115+(i*20), camper.name + spacing + 'Team '+camper.team + leader);
+		}else{
+			pdf.text(55, 115+(i*20), camper.name + spacing + 'Not participating');
+		}
 	}
 }
 function generateTeamPDF(pdf, index){
