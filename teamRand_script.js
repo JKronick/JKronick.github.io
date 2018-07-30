@@ -1,285 +1,6 @@
 window.onload = setUp;
 const campers = [
 
-	{
-		name: 'Eva Abadi',
-		cabin: 6,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Gabriella Azoulay',
-		cabin: 6,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Simone Ballon',
-		cabin: 6,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Eva Benhaim',
-		cabin: 6,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Carla Bouganim',
-		cabin: 6,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Mikayla Garfield',
-		cabin: 6,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Mia Garzon',
-		cabin: 6,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Ella Ohayon',
-		cabin: 6,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Sarah Salis',
-		cabin: 6,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Grace Shtern',
-		cabin: 6,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Arielle Vadish',
-		cabin: 6,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Benjamin Alter',
-		cabin: 7,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Alexander Bultz',
-		cabin: 7,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Shane Kirzner',
-		cabin: 7,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Nathaniel Kunin',
-		cabin: 7,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Justin Salis',
-		cabin: 7,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Daniel Shlien',
-		cabin: 7,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Jake Szamosi',
-		cabin: 7,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Jonas Wolfensohn',
-		cabin: 7,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Nathan Yarmush',
-		cabin: 7,
-		unit: 'gib',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Molly Backler',
-		cabin: 4,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'sophie cobrin',
-		cabin: 4,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Skye Esar',
-		cabin: 4,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Lilah Goodman',
-		cabin: 4,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Mia Korngold',
-		cabin: 4,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Sophie Kunin',
-		cabin: 4,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Matthew Erdelyi',
-		cabin: 5,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Noah Haupt',
-		cabin: 5,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Jordan Levy-Ajzenkopf',
-		cabin: 5,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Mark Sebag',
-		cabin: 5,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Alexander Segal',
-		cabin: 5,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Ryan Stolow',
-		cabin: 5,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Samson Weber',
-		cabin: 5,
-		unit: 'gosh',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Sofia Ballon',
-		cabin: 1,
-		unit: 'kochot',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Rachel Bass',
-		cabin: 1,
-		unit: 'kochot',
-		isParticipating: true,
-		isLeader: false,
-	},
 
 	{
 		name: 'Liberty Budman',
@@ -306,7 +27,7 @@ const campers = [
 	},
 
 	{
-		name: 'Emily Haupt',
+		name: 'NoraJin Sokoloff',
 		cabin: 1,
 		unit: 'kochot',
 		isParticipating: true,
@@ -314,7 +35,7 @@ const campers = [
 	},
 
 	{
-		name: 'Ariella Morgan',
+		name: 'Ruby Steinberg',
 		cabin: 1,
 		unit: 'kochot',
 		isParticipating: true,
@@ -322,7 +43,7 @@ const campers = [
 	},
 
 	{
-		name: 'Abby Shmorgun',
+		name: 'Mira Toledano',
 		cabin: 1,
 		unit: 'kochot',
 		isParticipating: true,
@@ -330,23 +51,23 @@ const campers = [
 	},
 
 	{
-		name: 'Nora Jin Sokoloff',
-		cabin: 1,
+		name: 'Evan Degani',
+		cabin: 3,
 		unit: 'kochot',
 		isParticipating: true,
 		isLeader: false,
 	},
 
 	{
-		name: 'Jory Szirt',
-		cabin: 1,
+		name: 'Ari Diamond',
+		cabin: 3,
 		unit: 'kochot',
 		isParticipating: true,
 		isLeader: false,
 	},
 
 	{
-		name: 'Jonathan-Bram Gordon',
+		name: 'Lucas Hart',
 		cabin: 3,
 		unit: 'kochot',
 		isParticipating: true,
@@ -362,7 +83,7 @@ const campers = [
 	},
 
 	{
-		name: 'Felix Sebag',
+		name: 'Aiden Shlien',
 		cabin: 3,
 		unit: 'kochot',
 		isParticipating: true,
@@ -378,14 +99,6 @@ const campers = [
 	},
 
 	{
-		name: 'William Wall',
-		cabin: 3,
-		unit: 'kochot',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
 		name: 'Asher Wolfensohn',
 		cabin: 3,
 		unit: 'kochot',
@@ -394,15 +107,287 @@ const campers = [
 	},
 
 	{
-		name: 'Dylan Zimmer',
-		cabin: 3,
-		unit: 'kochot',
+		name: 'Molly Backler',
+		cabin: 4,
+		unit: 'gosh',
 		isParticipating: true,
 		isLeader: false,
 	},
 
 	{
-		name: 'Sophie Attias',
+		name: 'Chloe Behar',
+		cabin: 4,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'sophie cobrin',
+		cabin: 4,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Andrea Cohen',
+		cabin: 4,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Emma Dixter',
+		cabin: 4,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Ruby Goldberg',
+		cabin: 4,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Amanda Gurman',
+		cabin: 4,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Sophie Kunin',
+		cabin: 4,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Gabrielle Rothstein',
+		cabin: 4,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Olivia Rothstein',
+		cabin: 4,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Joelle Toledano',
+		cabin: 4,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Robert Cornea',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Noah Cziment',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Sacha Filger',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Ronnie Hartal',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Noah Haupt',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Kaiden Reinblatt',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Felix Roussel-Lustgarten',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Noah-Kai Shak',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Ryan Stolow',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Sean VanFrank',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Jonah Warshawsky',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Adam Zabitsky',
+		cabin: 5,
+		unit: 'gosh',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Amanda Benzacar',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Aliza Burleigh',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Rachel Cohen',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Charlotte Diamond',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Mia Dixter',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Samara Gorbatyuk',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Zoe Gutfreund',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Maya Puterman-Salzman',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Emma Reiner',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Leah Sigesmund',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Jenna Star',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Hannah Zand',
+		cabin: 6,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Alexa Azran',
 		cabin: 8,
 		unit: 'kochot',
 		isParticipating: true,
@@ -410,7 +395,7 @@ const campers = [
 	},
 
 	{
-		name: 'Maya Azoulay',
+		name: 'Kaitlin"Katie" Chankowsky',
 		cabin: 8,
 		unit: 'kochot',
 		isParticipating: true,
@@ -418,7 +403,7 @@ const campers = [
 	},
 
 	{
-		name: 'Maia Bouganim',
+		name: 'Aidyn Dagenais-Adler',
 		cabin: 8,
 		unit: 'kochot',
 		isParticipating: true,
@@ -426,7 +411,7 @@ const campers = [
 	},
 
 	{
-		name: 'Yaïl Brennan-Touaty',
+		name: 'Talya Elbaz',
 		cabin: 8,
 		unit: 'kochot',
 		isParticipating: true,
@@ -434,15 +419,7 @@ const campers = [
 	},
 
 	{
-		name: 'Kaitlin Chankowsky',
-		cabin: 8,
-		unit: 'kochot',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Audrey Krackovitch',
+		name: 'Talia Puterman-Salzman',
 		cabin: 8,
 		unit: 'kochot',
 		isParticipating: true,
@@ -458,7 +435,7 @@ const campers = [
 	},
 
 	{
-		name: 'Jessica Salis',
+		name: 'Samantha Schwartz',
 		cabin: 8,
 		unit: 'kochot',
 		isParticipating: true,
@@ -466,7 +443,7 @@ const campers = [
 	},
 
 	{
-		name: 'Yohanna Sochaczevski',
+		name: 'Zoe Wagman',
 		cabin: 8,
 		unit: 'kochot',
 		isParticipating: true,
@@ -474,8 +451,8 @@ const campers = [
 	},
 
 	{
-		name: 'Dalia Vadish',
-		cabin: 8,
+		name: 'Jesse Amar',
+		cabin: 9,
 		unit: 'kochot',
 		isParticipating: true,
 		isLeader: false,
@@ -490,15 +467,7 @@ const campers = [
 	},
 
 	{
-		name: 'Gabriel Betito',
-		cabin: 9,
-		unit: 'kochot',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Aiden Elharrar',
+		name: 'Jacob Clarkin',
 		cabin: 9,
 		unit: 'kochot',
 		isParticipating: true,
@@ -514,7 +483,7 @@ const campers = [
 	},
 
 	{
-		name: 'Tyler Mendel',
+		name: 'Liam Ohayon',
 		cabin: 9,
 		unit: 'kochot',
 		isParticipating: true,
@@ -522,7 +491,23 @@ const campers = [
 	},
 
 	{
-		name: 'Liam Ohayon',
+		name: 'Tyler Patterson',
+		cabin: 9,
+		unit: 'kochot',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Isaac Rubinstein',
+		cabin: 9,
+		unit: 'kochot',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Jacob Sassoon',
 		cabin: 9,
 		unit: 'kochot',
 		isParticipating: true,
@@ -538,14 +523,6 @@ const campers = [
 	},
 
 	{
-		name: 'Tyler Schwartz',
-		cabin: 9,
-		unit: 'kochot',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
 		name: 'Matthew Stolow',
 		cabin: 9,
 		unit: 'kochot',
@@ -554,7 +531,7 @@ const campers = [
 	},
 
 	{
-		name: 'Elan Vigderhous',
+		name: 'Matthew Tessler',
 		cabin: 9,
 		unit: 'kochot',
 		isParticipating: true,
@@ -562,7 +539,7 @@ const campers = [
 	},
 
 	{
-		name: 'Eli Williams',
+		name: 'Tyler VanFrank',
 		cabin: 9,
 		unit: 'kochot',
 		isParticipating: true,
@@ -570,15 +547,7 @@ const campers = [
 	},
 
 	{
-		name: 'Ezra Williams',
-		cabin: 9,
-		unit: 'kochot',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Ruben Amar',
+		name: 'Dylan Bola',
 		cabin: 10,
 		unit: 'lits',
 		isParticipating: true,
@@ -586,7 +555,7 @@ const campers = [
 	},
 
 	{
-		name: 'Dylan Attias',
+		name: 'Ethan Degani',
 		cabin: 10,
 		unit: 'lits',
 		isParticipating: true,
@@ -594,7 +563,7 @@ const campers = [
 	},
 
 	{
-		name: 'Ryan Cohen',
+		name: 'Daniel Fishko',
 		cabin: 10,
 		unit: 'lits',
 		isParticipating: true,
@@ -602,7 +571,7 @@ const campers = [
 	},
 
 	{
-		name: 'Jeremy Gordon',
+		name: 'Brandon Steiner',
 		cabin: 10,
 		unit: 'lits',
 		isParticipating: true,
@@ -610,208 +579,8 @@ const campers = [
 	},
 
 	{
-		name: 'Atley Gringorten',
+		name: 'Jacob Tessler',
 		cabin: 10,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Jacob Krackovitch',
-		cabin: 10,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Aiden Lang',
-		cabin: 10,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Ryan Malek',
-		cabin: 10,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Max Moghrabi',
-		cabin: 10,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Liam Pariente',
-		cabin: 10,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Logan Salpeter',
-		cabin: 10,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Kyle Taylor',
-		cabin: 10,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Asher Zand',
-		cabin: 10,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Sony Berlach',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Ashley Bloom',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Megan Boyer',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Nehama Brennan-Touaty',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Samantha Chankowsky',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Maya Conway',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Ruby Gelfand',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Gabrielle Harroch',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Emma Haupt',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Julia Korman',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Eden Masliah',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Amanda Rosenthal',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Hannah Rouben',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Samantha Schwenger',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Ella Shlien',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Madison Silber',
-		cabin: 13,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Matthew Anzarouth',
-		cabin: 11,
 		unit: 'lits',
 		isParticipating: true,
 		isLeader: false,
@@ -858,22 +627,6 @@ const campers = [
 	},
 
 	{
-		name: 'Ethan Elharrar',
-		cabin: 11,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Jonathan Jagermann',
-		cabin: 11,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
 		name: 'Andrew Korne',
 		cabin: 11,
 		unit: 'lits',
@@ -883,22 +636,6 @@ const campers = [
 
 	{
 		name: 'Ben Korne',
-		cabin: 11,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Jacob Rubin-Strudwick',
-		cabin: 11,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Connor Salpeter',
 		cabin: 11,
 		unit: 'lits',
 		isParticipating: true,
@@ -930,47 +667,7 @@ const campers = [
 	},
 
 	{
-		name: 'David Tendler',
-		cabin: 11,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
 		name: 'Iris Cohen',
-		cabin: 12,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Charlie Dallaire',
-		cabin: 12,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Lia Garshowitz',
-		cabin: 12,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Fay Gomberg',
-		cabin: 12,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
-		name: 'Erin Gould',
 		cabin: 12,
 		unit: 'lits',
 		isParticipating: true,
@@ -1034,14 +731,6 @@ const campers = [
 	},
 
 	{
-		name: 'Allison Segal',
-		cabin: 12,
-		unit: 'lits',
-		isParticipating: true,
-		isLeader: false,
-	},
-
-	{
 		name: 'Zoe Small',
 		cabin: 12,
 		unit: 'lits',
@@ -1050,7 +739,7 @@ const campers = [
 	},
 
 	{
-		name: 'Sarah Qin Sokoloff',
+		name: 'SarahQin Sokoloff',
 		cabin: 12,
 		unit: 'lits',
 		isParticipating: true,
@@ -1061,6 +750,190 @@ const campers = [
 		name: 'Sahra Zimmer',
 		cabin: 12,
 		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Jasmin Behar',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Sony Berlach',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Samantha Chankowsky',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Gabriella Dubrovsky',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Shannon Filger',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Ruby Gelfand',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Chiara Goldig',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Emma Haupt',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Julia Korman',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Jasmine Puterman-Salzman',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Hannah Rouben',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Samantha Schwenger',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Hailey Taiger',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Sari Warshawsky',
+		cabin: 13,
+		unit: 'lits',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Benjamin Alter',
+		cabin: 7,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'William Benzacar',
+		cabin: 7,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'William Cohen',
+		cabin: 7,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Jacob Gordon',
+		cabin: 7,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Nathaniel Kunin',
+		cabin: 7,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Rowen Shak',
+		cabin: 7,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Charlie Shein',
+		cabin: 7,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Samuel Zand',
+		cabin: 7,
+		unit: 'gib',
+		isParticipating: true,
+		isLeader: false,
+	},
+
+	{
+		name: 'Zachary Zand',
+		cabin: 7,
+		unit: 'gib',
 		isParticipating: true,
 		isLeader: false,
 	},
