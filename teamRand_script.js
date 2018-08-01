@@ -947,7 +947,7 @@ window.onbeforeunload = function() {
 }
 
 function setUp(){
-	showMessage();
+	//showMessage();
 	$('#messageScreen').click(function() {
 		closeMessage();
 	});
