@@ -1105,6 +1105,7 @@ function closeAddTeamLeadersScreen(){
 function addTeamLeader(index){
 	teams[teamNumber].teamLeaders.push(index);
 	campers[index].isLeader = teams[teamNumber].number;
+	campers[index].team = teams[teamNumber].number;
 	campers[index].isParticipating = true;
 	disableYesNo(index);
 	document.getElementById('resultsDisplay').style.display = "none";
@@ -1433,7 +1434,7 @@ function generateTeams(){
 	}
 	for(let i=0; i<campers.length; i++){
 		ind = sortedCampers[i].index;
-		if(campers[ind].isParticipating){
+		if(campers[ind].isParticipating && !campers[ind].isLeader){
 	  		teamNum = Math.ceil(Math.random()*teamNums);
 	  		while(teamCounter[teamNum] === true){
 	    		teamNum = Math.ceil(Math.random()*teamNums);
@@ -1442,7 +1443,7 @@ function generateTeams(){
 	  		refreshCount++;
 	  		campers[ind].team = teamNum;
 	  		for(let j=0; j<teams.length; j++){
-	  			if(teams[j].number === teamNum && !campers[ind].isLeader){
+	  			if(teams[j].number === teamNum){
 	  				teams[j].campers.push(ind);
 	  				break;
 	  			}
